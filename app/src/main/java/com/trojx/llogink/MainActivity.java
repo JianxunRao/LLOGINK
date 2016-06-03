@@ -1,7 +1,14 @@
 package com.trojx.llogink;
 
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     public static final String TAG="MainActivity";
@@ -11,7 +18,23 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        initdata();
+        getSupportActionBar().setTitle("公共信息服务中心");
+
+        ViewPager viewPager= (ViewPager) findViewById(R.id.viewpager);
+        TabLayout tabLayout= (TabLayout) findViewById(R.id.tab_main);
+        MainPagerAdapter pagerAdapter=new MainPagerAdapter(getSupportFragmentManager());
+        pagerAdapter.addFragment(new CompanyInfoFragment(),"企业动态信息");
+        pagerAdapter.addFragment(new CompanyInfoFragment(),"企业动态信息");
+        if (viewPager != null) {
+            viewPager.setAdapter(pagerAdapter);
+        }
+        if (tabLayout != null) {
+            tabLayout.setupWithViewPager(viewPager);
+//            tabLayout.getTabAt(0).setIcon()
+        }
+
+
+//        initdata();
     }
 
     private void initdata() {
@@ -54,8 +77,35 @@ public class MainActivity extends AppCompatActivity {
 //            }
 //        });
 
+    }
+    class MainPagerAdapter extends FragmentPagerAdapter{
 
+        private ArrayList<Fragment> fragments=new ArrayList<>();
+        private ArrayList<String> tags=new ArrayList<>();
 
+        public MainPagerAdapter(FragmentManager fm) {
+            super(fm);
+        }
+
+        @Override
+        public Fragment getItem(int position) {
+            return fragments.get(position);
+        }
+
+        @Override
+        public int getCount() {
+            return fragments.size();
+        }
+
+        @Override
+        public CharSequence getPageTitle(int position) {
+            return tags.get(position);
+        }
+
+        public void addFragment(Fragment fragment, String tag){
+            fragments.add(fragment);
+            tags.add(tag);
+        }
     }
 
 
