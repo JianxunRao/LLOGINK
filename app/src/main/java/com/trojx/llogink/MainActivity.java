@@ -23,8 +23,10 @@ public class MainActivity extends AppCompatActivity {
         ViewPager viewPager= (ViewPager) findViewById(R.id.viewpager);
         TabLayout tabLayout= (TabLayout) findViewById(R.id.tab_main);
         MainPagerAdapter pagerAdapter=new MainPagerAdapter(getSupportFragmentManager());
-        pagerAdapter.addFragment(new CompanyInfoFragment(),"企业动态信息");
-        pagerAdapter.addFragment(new CompanyInfoFragment(),"企业动态信息");
+        pagerAdapter.addFragment(new CompanyInfoFragment(),"企业动态");
+        pagerAdapter.addFragment(new CompanyInfoFragment(),"道路通阻");
+        pagerAdapter.addFragment(new CompanyInfoFragment(),"公共信息");
+        pagerAdapter.addFragment(new CompanyInfoFragment(),"我的");
         if (viewPager != null) {
             viewPager.setAdapter(pagerAdapter);
         }

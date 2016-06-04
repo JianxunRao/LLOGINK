@@ -1,5 +1,6 @@
 package com.trojx.llogink;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -7,6 +8,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -59,6 +61,7 @@ public class CompanyInfoFragment extends Fragment {
             infoImgList.add("http://7xla0x.com1.z0.glb.clouddn.com/llogink/imgs/"+i+".jpg");
         }
 
+
     }
 
     @Nullable
@@ -67,6 +70,19 @@ public class CompanyInfoFragment extends Fragment {
         View view=inflater.inflate(R.layout.fragment_company_info,container,false);
         listView = (ListView) view.findViewById(R.id.lv_company_info);
         listView.setAdapter(adapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent=new Intent(getActivity(),InfoDetailActivity.class);
+                AVObject info=companyInfoList.get(position);
+                String imgUrl=infoImgList.get(position%10);
+                intent.putExtra("info",info);
+                intent.putExtra("imgUrl",imgUrl);
+                startActivity(intent);
+
+            }
+        });
 
 
         return view;

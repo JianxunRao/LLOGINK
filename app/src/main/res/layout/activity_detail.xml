@@ -37,10 +37,17 @@
                 android:layout_below="@id/ll_detail_infos"
                 android:layout_marginTop="16dp"
                 android:background="#50000000"/>
+            <ImageView
+                android:id="@+id/iv_detail"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginTop="32dp"
+                android:layout_below="@id/ll_detail_infos"/>
             <TextView
                 android:id="@+id/tv_detail_content"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="32dp"
-                android:layout_below="@id/ll_detail_infos"/>
+                android:layout_below="@id/iv_detail"
+                android:textSize="18sp"/>
 </RelativeLayout>
