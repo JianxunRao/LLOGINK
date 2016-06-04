@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">LLOGINK</string>
+    <string name="app_name">公共信息服务客户端</string>
     <string name="title">信息标题</string>
     <string name="content">内容</string>
     <string name="tag">标签</string>
