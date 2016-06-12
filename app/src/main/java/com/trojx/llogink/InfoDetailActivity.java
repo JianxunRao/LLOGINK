@@ -22,6 +22,7 @@ public class InfoDetailActivity extends AppCompatActivity {
     private AVObject infoItem;
     private String imgUrl;
 
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,6 +60,10 @@ public class InfoDetailActivity extends AppCompatActivity {
     }
     //栏目代码转名称
     private String getCateName(String code){
+        if(code==null){
+            return infoItem.getString("ProviderName");
+        }
+
         if(code.equals("001")){
             return "企业公告";
         }else if(code.equals("002")){

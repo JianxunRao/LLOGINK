@@ -11,9 +11,17 @@
             android:layout_height="wrap_content"
             android:queryHint="搜索信息"/>
     </LinearLayout>
-    <ListView
-        android:id="@+id/lv_public_info"
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/srl_traffic_info"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent">
+        <ListView
+            android:id="@+id/lv_traffic_info"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+
 
 </LinearLayout>

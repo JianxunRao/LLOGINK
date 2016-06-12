@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f4f4f4">
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:layout_marginTop="16dp"
+        android:padding="16dp"
+        android:hint="标题"
+        android:background="#ffffff"
+        android:id="@+id/et_new_info_title"/>
+    <EditText
+        android:id="@+id/et_new_info"
+        android:layout_width="match_parent"
+        android:layout_marginTop="18dp"
+        android:padding="16dp"
+        android:hint="发布新的道路通阻信息..."
+        android:background="#ffffff"
+        android:maxLines="10"
+        android:layout_height="128dp" />
+    <Button
+        android:id="@+id/bt_submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@color/colorPrimary"
+        android:textColor="#ffffff"
+        android:layout_gravity="center_horizontal"
+        android:text="发布"/>
+
+</LinearLayout>
